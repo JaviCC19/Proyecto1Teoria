@@ -55,7 +55,39 @@ def process_files(path_regex: str, path_words: str|None=None, single_w: str|None
             print(f"w='{w}' -> {'sí' if ok else 'no'}")
 
 
+def main():
+    ruta_expresiones = "expresiones.txt"
 
-ruta_expresiones = "expresiones.txt"
-cadena_unica = "abab"
-process_files(ruta_expresiones, single_w=cadena_unica, render_ast=True)
+    while True:
+        print("\n===== MENÚ PRINCIPAL =====")
+        print("1. Ingresar una cadena y procesar")
+        print("2. Ingresar una expresión regular y una cadena para procesar")
+        print("3. Salir")
+
+        opcion = input("Seleccione una opción: ").strip()
+
+        if opcion == "1":
+            cadena = input("Ingrese la cadena a probar: ").strip()
+            process_files(ruta_expresiones, single_w=cadena, render_ast=True)
+
+        elif opcion == "2":
+            expresion = input("Ingrese la expresión regular a procesar: ").strip()
+            cadena = input("Ingrese la cadena a probar: ").strip()
+            # Guardar la expresión en un archivo temporal
+            ruta_temp = "expresion_temp.txt"
+            if os.path.exists(ruta_temp):
+                os.remove(ruta_temp)
+            with open(ruta_temp, 'w', encoding='utf-8') as f:
+                f.write(expresion + '\n')
+            process_files(ruta_temp, single_w=cadena, render_ast=True)
+
+        elif opcion == "3":
+            print("Saliendo...")
+            break
+
+        else:
+            print("Opción no válida, intente de nuevo.")
+
+
+if __name__ == "__main__":
+    main()
