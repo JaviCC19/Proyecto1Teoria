@@ -101,4 +101,4 @@ def draw_nfa(nfa: NFA, filename: str = 'nfa'):
             dot.edge(str(u), str(v), label=sym)
 
     dot.render(filename, format='png', cleanup=True)
-    print(f"AFN renderizado: {filename}.png")
+    # print(f"AFN renderizado: {filename}.png")

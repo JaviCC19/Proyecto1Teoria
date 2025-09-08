@@ -57,5 +57,5 @@ def process_files(path_regex: str, path_words: str|None=None, single_w: str|None
 
 
 ruta_expresiones = "expresiones.txt"
-cadena_unica = "bbb"
+cadena_unica = "abab"
 process_files(ruta_expresiones, single_w=cadena_unica, render_ast=True)

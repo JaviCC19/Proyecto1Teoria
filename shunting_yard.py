@@ -87,32 +87,32 @@ def infix_to_postfix(regex: str) -> str:
     stack = []
     formatted = format_regex(regex)
     print(f"\nInfix original : {regex}")
-    print(f"Infix formateado: {formatted}")
-    print("Pasos de conversión:")
+    #print(f"Infix formateado: {formatted}")
+    #print("Pasos de conversión:")
 
     for c in formatted:
         if c == '(':
             stack.append(c)
-            print(f"Push '(': {stack}")
+            #print(f"Push '(': {stack}")
         elif c == ')':
             while stack and stack[-1] != '(':
                 output += stack.pop()
-                print(f"Pop hasta '(': salida = {output}, stack = {stack}")
+                #print(f"Pop hasta '(': salida = {output}, stack = {stack}")
             stack.pop()
-            print(f"Eliminar '(': {stack}")
+            #print(f"Eliminar '(': {stack}")
         elif c in "|.+?^*":
             while stack and get_precedence(stack[-1]) >= get_precedence(c):
                 output += stack.pop()
-                print(f"Pop por precedencia: salida = {output}, stack = {stack}")
+                #print(f"Pop por precedencia: salida = {output}, stack = {stack}")
             stack.append(c)
-            print(f"Push operador '{c}': {stack}")
+            #print(f"Push operador '{c}': {stack}")
         else:
             output += c
-            print(f"Añadir operando '{c}' a salida: {output}")
+            #print(f"Añadir operando '{c}' a salida: {output}")
 
     while stack:
         output += stack.pop()
-        print(f"Vaciar stack: salida = {output}")
+        #print(f"Vaciar stack: salida = {output}")
 
     print(f"Postfix final  : {output}")
     return output
