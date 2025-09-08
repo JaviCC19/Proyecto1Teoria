@@ -89,5 +89,5 @@ def main():
             print("Opción no válida, intente de nuevo.")
 
 
-if __name__ == "__main__":
-    main()
+
+main()
