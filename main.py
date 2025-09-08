@@ -46,7 +46,7 @@ def process_files(path_regex: str, path_words: str|None=None, single_w: str|None
                 print(f"DFA minimizado con {len(minimized_dfa.states)} estados")
                 
                 # Comparar autómatas
-                test_strings = palabras[i-1:i] if palabras else ['a', 'b', 'ab', 'ba', 'aa', 'bb', 'aba', 'bab']
+                test_strings = palabras[i-1:i] if palabras else ['a', 'b', 'ab', 'ba', 'aa', 'bb', 'aba', 'bab', '01', '10', '010', '101', '0', '1', '00']
                 compare_automata(nfa, minimized_dfa, test_strings)
         
         if palabras:

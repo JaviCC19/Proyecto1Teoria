@@ -1,5 +1,5 @@
 from simulaciones import epsilon_closure, move
-from dfa_construction import DFA
+from dfa import DFA
 
 def get_alphabet(nfa) -> set:
     """Extrae el alfabeto del NFA (excluyendo epsilon)"""
