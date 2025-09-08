@@ -2,7 +2,8 @@ import os
 from shunting_yard import build_ast_from_infix, draw_ast
 from thompson import thompson_from_ast, draw_nfa
 from simulaciones import nfa_accepts
-from dfa_construction import subset_construction, minimize_dfa, draw_dfa, draw_minimized_dfa, compare_automata
+from dfa_construction import minimize_dfa, draw_dfa, draw_minimized_dfa, compare_automata
+from subset import subset_construction, get_alphabet
 
 def process_files(path_regex: str, path_words: str|None=None, single_w: str|None=None, render_ast: bool=False, build_dfa: bool=True, minimize_dfa_flag: bool=True):
     if not os.path.exists(path_regex):
