@@ -47,8 +47,8 @@ def process_files(path_regex: str, path_words: str|None=None, single_w: str|None
                 
                 # Comparar autómatas
                 test_strings = palabras[i-1:i] if palabras else ['a', 'b', 'ab', 'ba', 'aa', 'bb', 'aba', 'bab', '01', '10', '010', '101', '0', '1', '00']
-                compare_automata(nfa, minimized_dfa, test_strings)
-        
+                compare_automata(nfa, dfa, test_strings)
+
         if palabras:
             w = palabras[i-1]
             ok = nfa_accepts(nfa, w)

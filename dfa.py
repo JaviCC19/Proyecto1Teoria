@@ -173,5 +173,6 @@ def compare_automata(nfa: NFA, dfa: DFA, test_strings: list) -> None:
     for test_str in test_strings:
         nfa_result = nfa_accepts(nfa, test_str)
         dfa_result = dfa.accepts_string(test_str)
+        dfa_minimized = minimize_dfa(dfa)
         status = "✓" if nfa_result == dfa_result else "✗"
-        print(f"  '{test_str}': NFA={nfa_result}, DFA={dfa_result} {status}")
+        print(f"  '{test_str}': NFA={nfa_result}, DFA={dfa_result}, DFA Minimized={dfa_minimized.accepts_string(test_str)} {status}")
